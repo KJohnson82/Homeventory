@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "473403818949",
+    "project_id": "homeventory-aa13f",
+    "storage_bucket": "homeventory-aa13f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:473403818949:android:23ee367604e6fce2b041ac",
+        "android_client_info": {
+          "package_name": "com.example.homeventory"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "473403818949-2hocki66ubg3b9cpd0bvr1885d9u7ogh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_uhYgXksnm5vAa17nbHurWTky2k0q0AY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "473403818949-2hocki66ubg3b9cpd0bvr1885d9u7ogh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "473403818949-gjvo2bd2147cnnoj2b5kh26almqqgc26.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.homeventory"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
