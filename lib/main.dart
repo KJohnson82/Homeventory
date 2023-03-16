@@ -1,10 +1,11 @@
 import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:firebase_core_web/firebase_core_web_interop.dart';
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'itemForm.dart';
+import 'Theme/colorTheme.dart';
+import 'package:dynamic_color/dynamic_color.dart';
 
 class House {
   int? homeId;
@@ -57,22 +58,66 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: Column(
-          children: [
-            Center(
-              child: Container(
-                child: Text('Hello World'),
-              ),
+    return DynamicColorBuilder(
+      builder: (ColorScheme? lightDynamic, ColorScheme? darkDynamic) {
+        ColorScheme lightScheme;
+        ColorScheme darkScheme;
+
+        if (lightDynamic != null && darkDynamic != null) {
+          lightScheme = lightDynamic.harmonized();
+          // lightCustomColors = lightCustomColors.harmonized(lightScheme);
+
+          // Repeat for the dark color scheme.
+          darkScheme = darkDynamic.harmonized();
+          // darkCustomColors = darkCustomColors.harmonized(darkScheme);
+        } else {
+          // Otherwise, use fallback schemes.
+          lightScheme = lightColorScheme;
+          darkScheme = darkColorScheme;
+        }
+
+        return MaterialApp(
+          theme: ThemeData(
+            useMaterial3: true,
+            colorScheme: lightScheme,
+            // extensions: [lightCustomColors],
+          ),
+          darkTheme: ThemeData(
+            useMaterial3: true,
+            colorScheme: darkScheme,
+            // extensions: [darkCustomColors],
+          ),
+          home: const Home(),
+        );
+      },
+    );
+  }
+}
+
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 2,
+        title: const Text('Homeventory'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: Container(
+              child: Text('Hello World'),
             ),
-            SizedBox(width: 600, height: 600, child: const ItemForm()),
-          ],
-        ),
+          ),
+          const SizedBox(
+              width: 600,
+              height: 600,
+              child: ItemForm(),
+          ),
+        ],
       ),
     );
   }

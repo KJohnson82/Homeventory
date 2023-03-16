@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core_web/firebase_core_web_interop.dart';
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:dynamic_color/dynamic_color.dart';
+import 'Theme/colorTheme.dart';
+
 
 /*
 Initial form is setup
@@ -22,12 +25,19 @@ import 'package:flutter/material.dart';
 void main() => runApp(ItemFormPage());
 
 class ItemFormPage extends StatelessWidget {
+  const ItemFormPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        colorScheme: const ColorScheme.light(),
+
+      ),
       title: 'Material App',
       home: Scaffold(
         appBar: AppBar(
+
           title: Text('Material App Bar'),
         ),
         body: Center(
@@ -40,6 +50,28 @@ class ItemFormPage extends StatelessWidget {
     );
   }
 }
+
+
+// void main() => runApp(ItemForm());
+
+// class ItemForm extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Material App',
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: Text('Material App Bar'),
+//         ),
+//         body: Center(
+//           child: Container(
+//             child: Text('Hello World'),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class ItemForm extends StatefulWidget {
   const ItemForm({Key? key}) : super(key: key);
@@ -87,6 +119,10 @@ class _ItemFormState extends State<ItemForm> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        colorScheme: const ColorScheme.dark(),
+
+    ),
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Add New Item'),
@@ -167,7 +203,7 @@ class _ItemFormState extends State<ItemForm> {
                   label: Text('Notes: ')),
               onSaved: (value) => _notes = value!,
             ),
-            ElevatedButton(onPressed: null, child: Text('Add'))
+            const ElevatedButton(onPressed: null, child: Text('Add'))
           ],
         ),
         ),
