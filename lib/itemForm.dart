@@ -17,6 +17,29 @@ Figure out how to add a form in a flutter bottom sheet
 
 
  */
+import 'package:flutter/material.dart';
+
+void main() => runApp(ItemFormPage());
+
+class ItemFormPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Material App',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Material App Bar'),
+        ),
+        body: Center(
+          child: SizedBox(
+              width: 600,
+              height: 800,
+              child: ItemForm()),
+          ),
+        ),
+    );
+  }
+}
 
 class ItemForm extends StatefulWidget {
   const ItemForm({Key? key}) : super(key: key);
