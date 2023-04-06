@@ -1,10 +1,10 @@
-import 'dart:html';
+// import 'dart:html';
 import 'package:flutter/material.dart';
-import 'package:firebase_core_web/firebase_core_web_interop.dart';
-import 'firebase_options.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:dynamic_color/dynamic_color.dart';
-import 'Theme/colorTheme.dart';
+// import 'package:firebase_core_web/firebase_core_web_interop.dart';
+// import 'firebase_options.dart';
+// import 'package:firebase_core/firebase_core.dart';
+// import 'package:dynamic_color/dynamic_color.dart';
+// import 'Theme/colorTheme.dart';
 
 
 /*
@@ -20,7 +20,7 @@ Figure out how to add a form in a flutter bottom sheet
 
 
  */
-import 'package:flutter/material.dart';
+
 
 void main() => runApp(ItemFormPage());
 
@@ -88,7 +88,7 @@ class _ItemFormState extends State<ItemForm> {
   String? _itemModel;
   String? _itemDimensions;
   String? _notes;
-  File? _imageFile;
+  // File? _imageFile;
 
   final _itemNameController = TextEditingController();
   final _itemTypeController = TextEditingController();
@@ -141,6 +141,7 @@ class _ItemFormState extends State<ItemForm> {
               },
               onSaved: (value) => _itemNameController.text = value!,
             ),
+            ExpansionPanelList.radio(),
             TextFormField(
               controller: _itemTypeController,
               decoration: const InputDecoration(labelText: 'Item Type'),

@@ -52,6 +52,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '473403818949',
     projectId: 'homeventory-aa13f',
     authDomain: 'homeventory-aa13f.firebaseapp.com',
+    databaseURL: 'https://homeventory-aa13f-default-rtdb.firebaseio.com',
     storageBucket: 'homeventory-aa13f.appspot.com',
     measurementId: 'G-ETL718LHH4',
   );
@@ -61,6 +62,7 @@ class DefaultFirebaseOptions {
     appId: '1:473403818949:android:23ee367604e6fce2b041ac',
     messagingSenderId: '473403818949',
     projectId: 'homeventory-aa13f',
+    databaseURL: 'https://homeventory-aa13f-default-rtdb.firebaseio.com',
     storageBucket: 'homeventory-aa13f.appspot.com',
   );
 
@@ -69,6 +71,7 @@ class DefaultFirebaseOptions {
     appId: '1:473403818949:ios:2c7c3b495c5e02d8b041ac',
     messagingSenderId: '473403818949',
     projectId: 'homeventory-aa13f',
+    databaseURL: 'https://homeventory-aa13f-default-rtdb.firebaseio.com',
     storageBucket: 'homeventory-aa13f.appspot.com',
     iosClientId: '473403818949-gjvo2bd2147cnnoj2b5kh26almqqgc26.apps.googleusercontent.com',
     iosBundleId: 'com.example.homeventory',
