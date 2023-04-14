@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "473403818949",
+    "firebase_url": "https://homeventory-aa13f-default-rtdb.firebaseio.com",
     "project_id": "homeventory-aa13f",
     "storage_bucket": "homeventory-aa13f.appspot.com"
   },
