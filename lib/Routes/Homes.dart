@@ -8,8 +8,9 @@ import '../../main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'Rooms.dart';
 
-var homeCount = 0;
+// var homeCount = 0;
 
+// Home Class
 class Home {
   String? homeName;
   Map<Object, Room>? rooms;
@@ -27,11 +28,13 @@ class HomesPage extends StatefulWidget {
 }
 
 class _HomesPageState extends State<HomesPage> {
+  // Calls the list of already created home objects from the firestore database
   final _homes = db.collection("homes");
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _homeNameController = TextEditingController();
   final FocusNode _focusNode = FocusNode();
 
+// Used to help keep count of the num of house objects
   int homeCount = 0;
 
 // Adds a new Home Object
@@ -42,11 +45,14 @@ class _HomesPageState extends State<HomesPage> {
       });
       _homeNameController.clear();
       Navigator.of(context).pop();
+      // Sets the state after the object is created to cause the page to rebuild
       setState(() {});
+      // Adds home to the homeCount list to keep track of number of objects
       homeCount = homeCount + 1;
     }
   }
 
+// Allows you to change the name of an existing home object
   void _editHome(String documentId, String newName) async {
     if (_formKey.currentState!.validate()) {
       await _homes.doc(documentId).update({
@@ -57,6 +63,7 @@ class _HomesPageState extends State<HomesPage> {
     }
   }
 
+// Keeps track of the home objects count, the delay was to preventapp crashing
   void updateHomeCount(int count) async {
     await Future.delayed(const Duration(milliseconds: 3));
     setState(() {
@@ -67,6 +74,7 @@ class _HomesPageState extends State<HomesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // Streams the data from the firestore database. returns as snapshots
       body: StreamBuilder<QuerySnapshot>(
         stream: _homes.snapshots(),
         builder: (context, snapshot) {
@@ -84,6 +92,7 @@ class _HomesPageState extends State<HomesPage> {
               crossAxisCount: 1,
             ),
             itemBuilder: (context, index) {
+              // Makes the created container objects clickable
               return InkWell(
                 onTap: () {
                   Navigator.push(
@@ -96,6 +105,7 @@ class _HomesPageState extends State<HomesPage> {
                           type: PageTransitionType.rightToLeft,
                           duration: Duration(milliseconds: 300)));
                 },
+                // Opens as dialog box to allow you to edit or delete a created object
                 onLongPress: () {
                   showDialog(
                       context: context,
@@ -175,6 +185,7 @@ class _HomesPageState extends State<HomesPage> {
                         shape: BoxShape.rectangle,
                       ),
                       child: Text(
+                        //Displays the created objects name
                         homes[index]['homeName'],
                         style: TextStyle(
                           color: homeventory.onSecondary,
@@ -193,6 +204,7 @@ class _HomesPageState extends State<HomesPage> {
       ),
       floatingActionButton: FloatingActionButton(
         // elevation: 3,
+        //Checks to see how many home objects exist and if it less than three allows you to add a new object, if not, it makes the button non-clickable
         onPressed: homeCount < 3
             ? () {
                 showDialog(
