@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'dart:typed_data';
+import 'package:get/get.dart';
 
+// routes
 import 'RoomItems.dart';
 
 class Item {
@@ -26,7 +29,6 @@ class Item {
     this.itemNotes,
   });
 
-
   Map<String, dynamic> toMap() {
     return {
       'itemId': itemId,
@@ -40,7 +42,6 @@ class Item {
       'itemNotes': itemNotes,
     };
   }
-
 
   factory Item.fromMap(Map<String, dynamic> map) {
     return Item(
@@ -78,6 +79,7 @@ class _ItemFormState extends State<ItemForm> {
   TextEditingController _itemColorController = TextEditingController();
   TextEditingController _itemNotesController = TextEditingController();
 
+// Creates a new Item object and pushes the info to the database
   void _addItem() async {
     if (_formKey.currentState!.validate()) {
       await _firestore
