@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import '../Theme/colorTheme.dart';
-import '../../main.dart';
+import '../main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'Rooms.dart';
 import '../firestore_instance.dart';

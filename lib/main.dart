@@ -14,6 +14,7 @@ import 'Routes/Rooms.dart';
 
 // themes
 import 'Theme/colorTheme.dart';
+import 'firestore_instance.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
