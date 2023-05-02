@@ -1,17 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'Routes/Homes.dart';
 import 'firebase_options.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'Theme/colorTheme.dart';
+import 'package:get/get.dart';
 
-FirebaseFirestore db = FirebaseFirestore.instance;
+// routes
+import 'Routes/Homes.dart';
+import 'Routes/ItemsForm.dart';
+import 'Routes/RoomItems.dart';
+import 'Routes/Rooms.dart';
+
+// themes
+import 'Theme/colorTheme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
+  // FirebaseFirestore db = FirebaseFirestore.instance;
+  // db.settings = const Settings(persistenceEnabled: true);
+
+  await FirestoreInstance.setSettings(const Settings(
+    persistenceEnabled: true,
+    cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED,
+  ));
 
   runApp(
     MaterialApp(
@@ -20,20 +34,8 @@ Future<void> main() async {
           colorScheme: homeventory,
           useMaterial3: false,
           textTheme: GoogleFonts.poppinsTextTheme()),
-
       title: 'HOMVENTORY',
       home: Scaffold(
-        // bottomNavigationBar: const BottomAppBar(
-        //   elevation: 2,
-        //   notchMargin: 10,
-        //   shape: AutomaticNotchedShape(
-        //     RoundedRectangleBorder(
-        //         borderRadius: BorderRadius.all(
-        //           Radius.circular(30),
-        //         )),
-        //     StadiumBorder(),
-        //   ),
-        // ),
         appBar: AppBar(
           // Sets the phone icons to use dark mode
           systemOverlayStyle:
@@ -46,7 +48,8 @@ Future<void> main() async {
               )),
           centerTitle: true,
         ),
-        body: const HomesPage(),
+        // Launches the Homes Page as the main app page
+        body: HomesPage(),
       ),
     ),
   );
